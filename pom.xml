@@ -221,7 +221,7 @@
 				<version>${maven.war.plugin.version}</version>
 				<configuration>
 					<!-- NOTE: specify your Tomcat installation webapps directory location! -->
-					<outputDirectory>/home/leblanc/bin/apache-tomcat-8.5.34/webapps/</outputDirectory>
+					<outputDirectory>/home/leblanc/bin/apache-tomcat-8.5.35/webapps/</outputDirectory>
 				</configuration>
 			</plugin>
 		</plugins>
