@@ -63,12 +63,13 @@ public class BookController {
         return "books/show";
     }
 
-    /*First, Spring MVC will try to bind the submitted data to the Book domain object and perform the 
-     * type conversion and formatting automatically. If binding errors are found (for example, 
-     * the birth date was entered in the wrong format), the errors will be saved into the 
-     * BindingResult interface, and an error message will be saved into the Model, redisplaying the 
-     * edit view. If the binding is successful, the data will be saved, and the logical view name 
-     * will be returned for the display book view by using redirect: as the prefix. 
+    /* First, Spring MVC will try to bind the submitted data to the Book domain
+     * object and perform the type conversion and formatting automatically. If
+     * binding errors are found, the errors will be saved into the
+     * BindingResult interface, and an error message will be saved into the
+     * Model, redisplaying the edit view. If the binding is successful, the
+     * data will be saved, and the logical view name will be returned for the
+     * display book view by using redirect: as the prefix. 
      */
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.POST)
     public String update(@Valid Book book, BindingResult bindingResult, Model uiModel,
@@ -143,8 +144,6 @@ public class BookController {
         // Process order by
         Sort sort = null;
         String orderBy = sortBy;
-        if (orderBy != null && orderBy.equals("birthDateString"))
-            orderBy = "birthDate";
 
         if (orderBy != null && order != null) {
             if (order.equals("desc")) {
