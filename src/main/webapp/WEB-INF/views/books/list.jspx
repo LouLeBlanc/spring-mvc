@@ -34,7 +34,7 @@
 				colModel :[
 					{name:'category', index:'category', width:100},
 					{name:'isbn', index:'isbn', width:100},
-					{name:'title', index:'title', width:150},
+					{name:'title', index:'title', width:250},
 					{name:'publisher', index:'publisher', width:100},
 					{name:'price', index:'price', width:50}
 				],
@@ -54,7 +54,7 @@
 				viewrecords: true,
 				gridview: true,
 				height: 250,
-				width: 500,
+				width: 650,
 				caption: '${labelBookList}',
 				<!-- We need to add an anchor link into the book list view 
 					for each book to the show book view. -->
