@@ -48,7 +48,7 @@
 		</beans:property>
 	</beans:bean>
 
-	<context:component-scan base-package="com.apress.prospring5.ch16" />
+	<context:component-scan base-package="edu.brandeis.rseg105.mvc" />
 
 	<interceptors>
 		<!-- This class intercepts every request for changing the theme. -->
@@ -95,17 +95,6 @@
 
 	<beans:bean class="org.springframework.web.multipart.support.StandardServletMultipartResolver"
 		id="multipartResolver"/>
-
-	<beans:bean id="typeConversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-		<beans:property name="formatters">
-			<util:set>
-				<beans:bean class="edu.brandeis.rseg105.mvc.util.DateFormatter"/>
-			</util:set>
-		</beans:property>
-	</beans:bean>
-
-	<!-- Defines basic MVC defaults (handler adapter, mapping, date formatting, etc) -->
-	<annotation-driven conversion-service="typeConversionService" validator="validator"/>
 
 	<view-controller path="/" view-name="books/list"/>
 
