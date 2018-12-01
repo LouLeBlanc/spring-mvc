@@ -177,25 +177,4 @@ public class Book implements Serializable {
 				", Publisher: " + this.publisher +
 				", Price: " + this.price);
 	}
-
-	@Override public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if (o == null || getClass() != o.getClass())
-			return false;
-		if (!super.equals(o))
-			return false;
-		Book book = (Book) o;
-		if (isbn != null ? !isbn.equals(book.isbn) : book.title != null )
-			return false;
-		return title != null ? !title.equals(book.title) : book.title != null;
-	}
-
-	@Override public int hashCode() {
-		int result = super.hashCode();
-		result = 31 * result + (title != null ? title.hashCode() : 0);
-		result = 31 * result + (isbn != null ? isbn.hashCode() : 0);
-		return result;
-	}
-
 }
