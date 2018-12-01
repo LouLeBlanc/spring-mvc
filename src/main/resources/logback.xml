@@ -11,7 +11,7 @@
 		</encoder>
 	</appender>
 
-	<logger name="com.apress.prospring5.ch16" level="debug"/>
+	<logger name="edu.brandeis.rseg105.mvc" level="debug"/>
 
 	<logger name="org.springframework.transaction" level="info"/>
 
