@@ -112,7 +112,7 @@ public class BookController {
 		logger.info("Creating book");
 		if (bindingResult.hasErrors()) {
 			uiModel.addAttribute("message", new Message("error",
-			messageSource.getMessage("book_save_fail", new Object[]{}, locale)));
+				messageSource.getMessage("book_save_fail", new Object[]{}, locale)));
 			uiModel.addAttribute("book", book);
 			return "books/create";
 		}

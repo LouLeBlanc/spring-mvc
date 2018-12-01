@@ -14,7 +14,6 @@ import java.util.Set;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -43,22 +42,18 @@ public class Book implements Serializable {
 	private int version;
 
 	@NotBlank(message="{validation.category.NotBlank.message}")
-	@Size(min=2, max=100, message="{validation.category.Size.message")
 	@Column(name="category_name")
 	private String category;
 
 	@NotBlank(message="{validation.isbn.NotBlank.message}")
-	@Size(min=10, max=13, message="{validation.isbn.Size.message")
 	@Column(name="isbn")
 	private String isbn;
 
 	@NotBlank(message="{validation.title.NotBlank.message}")
-	@Size(min=2, max=200, message="{validation.title.Size.message")
 	@Column(name="title")
 	private String title;
 
 	@NotBlank(message="{validation.publisher.NotBlank.message}")
-	@Size(min=2, max=100, message="{validation.publisher.Size.message")
 	@Column(name="publisher")
 	private String publisher;
 
