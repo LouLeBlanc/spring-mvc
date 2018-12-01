@@ -36,22 +36,22 @@
 			<div><form:errors path="category" cssClass="error" /></div>
 			<p/>
 
-			<form:label path="isbn">${labelBookISBN}*</form:label>
+			<form:label path="isbn">${labelBookISBN}</form:label>
 			<form:input path="isbn" />
 			<div><form:errors path="isbn" cssClass="error" /></div>
 			<p/>
 
-			<form:label path="title">${labelBookTitle}*</form:label>
+			<form:label path="title">${labelBookTitle}</form:label>
 			<form:input path="title" id="title"/>
 			<div><form:errors path="title" cssClass="error" /></div>
 			<p/>
 
-			<form:label path="publisher">${labelBookPublisher}*</form:label>
+			<form:label path="publisher">${labelBookPublisher}</form:label>
 			<form:input path="publisher" id="publisher"/>
 			<div><form:errors path="publisher" cssClass="error" /></div>
 			<p/>
 
-			<form:label path="price">${labelBookPrice}*</form:label>
+			<form:label path="price">${labelBookPrice}</form:label>
 			<form:input path="price" id="price"/>
 			<div><form:errors path="price" cssClass="error" /></div>
 			<p/>
