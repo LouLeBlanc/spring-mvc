@@ -2,7 +2,7 @@ TRUNCATE table book;
 
 INSERT INTO book (category_name, isbn, title, publisher, price) VALUES ('Java', '9781484228074', 'Pro Spring 5', 'APress', 49.99);
 INSERT INTO book (category_name, isbn, title, publisher, price) VALUES ('Java', '9781617294945', 'Spring in Action', 'Pearson Addison-Wesley', 49.99);
-# INSERT INTO book (category_name, isbn, title, publisher, price) VALUES ('Java', '9780134685997', 'Effective Java', 'Manning Press', 54.99);
+INSERT INTO book (category_name, isbn, title, publisher, price) VALUES ('Java', '9780134685997', 'Effective Java', 'Manning Press', 54.99);
 
 INSERT INTO book (category_name, isbn, title, publisher, price) VALUES ('Classics', '9781402712173', 'The Adventures of Sherlock Holmes', 'Sterling Publishing co.', 5.95);
 INSERT INTO book (category_name, isbn, title, publisher, price) VALUES ('Classics', '9781402726651', 'Oliver Twist', 'Sterling Publishing co.', 4.95);
