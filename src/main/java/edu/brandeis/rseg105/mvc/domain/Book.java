@@ -59,7 +59,7 @@ public class Book implements Serializable {
 
 	@NotNull
 	@Column(name="price")
-	private float  price;
+	private Float  price;
 
 	/**
 	 * @return the Book ID
@@ -106,7 +106,7 @@ public class Book implements Serializable {
 	/**
 	 * @return the price
 	 */
-	public float getPrice() {
+	public Float getPrice() {
 		return price;
 	}
 
@@ -156,7 +156,7 @@ public class Book implements Serializable {
 	/**
 	 * @param price the price to set
 	 */
-	public void setPrice(float price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
 
