@@ -1,15 +1,18 @@
+/**
+ * @author Louis LeBlanc
+ * For Homework Assignment 2
+ * Expert Software Development in Java
+ * Brandeis University
+ * Instructed by Vitaly Yurik
+ */
 package edu.brandeis.rseg105.mvc.web;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Part;
 import javax.validation.Valid;
 
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +54,9 @@ public class BookController {
 		uiModel.addAttribute("books", books);
 
 		logger.info("No. of books: " + books.size());
+		/* This is a little verbose, but it tells us what book records are being
+		 * returned to the caller
+		 */
 		books.forEach(book -> {
 			logger.info(book.toString());
 			logger.info("-----------------");
@@ -68,13 +74,13 @@ public class BookController {
 	}
 
 	/* First, Spring MVC will try to bind the submitted data to the Book domain
-	* object and perform the type conversion and formatting automatically. If
-	* binding errors are found, the errors will be saved into the
-	* BindingResult interface, and an error message will be saved into the
-	* Model, redisplaying the edit view. If the binding is successful, the
-	* data will be saved, and the logical view name will be returned for the
-	* display book view by using redirect: as the prefix.
-	*/
+	 * object and perform the type conversion and formatting automatically. If
+	 * binding errors are found, the errors will be saved into the
+	 * BindingResult interface, and an error message will be saved into the
+	 * Model, redisplaying the edit view. If the binding is successful, the
+	 * data will be saved, and the logical view name will be returned for the
+	 * display book view by using redirect: as the prefix.
+	 */
 	@RequestMapping(value = "/{id}", params = "form", method = RequestMethod.POST)
 	public String update(@Valid Book book, BindingResult bindingResult, Model uiModel,
 			HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes,
@@ -87,13 +93,15 @@ public class BookController {
 			return "books/update";
 		}
 		uiModel.asMap().clear();
-		//Note that we want to display the message after the redirect, so we need to use the
-		//RedirectAttributes.addFlashAttribute() method for displaying the success message
-		//in the show book view.
-		//The Message class is a custom class that stores the message retrieved from MessageSource
-		//and the type of message (that is, success or error) for the view to display in the message area
+		/* Note that we want to display the message after the redirect, so we
+		 * need to use the RedirectAttributes.addFlashAttribute() method for
+		 * displaying the success message in the show book view. The Message
+		 * class is a custom class that stores the message retrieved from
+		 * MessageSource and the type of message (that is, success or error) for
+		 * the view to display in the message area
+		 */
 		redirectAttributes.addFlashAttribute("message", new Message("success",
-			messageSource.getMessage("book_save_success", new Object[]{}, locale)));
+				messageSource.getMessage("book_save_success", new Object[]{}, locale)));
 		bookService.save(book);
 		return "redirect:/books/" + UrlUtil.encodeUrlPathSegment(book.getId().toString(), httpServletRequest);
 	}
@@ -104,11 +112,11 @@ public class BookController {
 		return "books/update";
 	}
 
-	//BindingResult used as an object to lookfor validation errors.
+	//BindingResult used as an object to look for validation errors.
 	@RequestMapping(method = RequestMethod.POST)
 	public String create(@Valid Book book, BindingResult bindingResult, Model uiModel,
 				HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes,
-				Locale locale, @RequestParam(value="file", required=false) Part file) {
+				Locale locale) {
 		logger.info("Creating book");
 		if (bindingResult.hasErrors()) {
 			uiModel.addAttribute("message", new Message("error",
@@ -167,7 +175,7 @@ public class BookController {
 
 		Page<Book> bookPage = bookService.findAllByPage(pageRequest);
 
-		// Construct the grid data that will return as JSON data
+		/* Construct the grid data that will return as JSON data */
 		BookGrid bookGrid = new BookGrid();
 
 		bookGrid.setCurrentPage(bookPage.getNumber() + 1);
@@ -175,6 +183,16 @@ public class BookController {
 		bookGrid.setTotalRecords(bookPage.getTotalElements());
 
 		bookGrid.setBookData(Lists.newArrayList(bookPage.iterator()));
+
+		/* This is a little less verbose.  It will log only the records being
+		 * returned for a specific page request.
+		 * This includes requesting a subsequent page in our display as well as
+		 * re-sorting by a specific field.
+		 */
+		bookGrid.getBookData().forEach(book -> {
+			logger.info(book.toString());
+			logger.info("-----------------");
+		});
 
 		return bookGrid;
 	}

@@ -19,8 +19,6 @@ public class WebInitializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic dispatcher =
                 container.addServlet("appServlet", new DispatcherServlet(appContext));
 		
-		/* public MultipartConfigElement(java.lang.String location, long maxFileSize, 
-			long maxRequestSize, int fileSizeThreshold); */			 
         MultipartConfigElement multipartConfigElement =
                 new MultipartConfigElement(null, 5000000, 5000000, 0);
         dispatcher.setMultipartConfig(multipartConfigElement);

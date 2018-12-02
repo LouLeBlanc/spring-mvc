@@ -1,9 +1,6 @@
 package edu.brandeis.rseg105.mvc.services;
 
-import com.google.common.collect.Lists;
-
-import edu.brandeis.rseg105.mvc.domain.Book;
-import edu.brandeis.rseg105.mvc.repos.BookRepository;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,7 +8,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import com.google.common.collect.Lists;
+
+import edu.brandeis.rseg105.mvc.domain.Book;
+import edu.brandeis.rseg105.mvc.repos.BookRepository;
 
 @Transactional
 @Service("bookService")

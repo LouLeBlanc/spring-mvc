@@ -9,10 +9,14 @@
 package edu.brandeis.rseg105.mvc.domain;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -57,6 +61,13 @@ public class Book implements Serializable {
 	@Column(name="publisher")
 	private String publisher;
 
+	/* We've used a float here in the past, but for this project we need to
+	 * demonstrate use of the @NotNull annotation.
+	 * Because a float is a value, and not a reference, we cannot use @NotNull.
+	 * We could use other annotations to restrict this float to a valid range,
+	 * but if we're to use @NotNull, we have to make this a Float so we can
+	 * validate it against a null reference.
+	 */
 	@NotNull
 	@Column(name="price")
 	private Float  price;
