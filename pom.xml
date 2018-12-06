@@ -3,11 +3,11 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>edu.brandeis.rseg105.mvc</groupId>
-	<artifactId>spring-mvc-webapp-1</artifactId>
+	<artifactId>spring-mvc-webapp-2</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>spring-mvc-webapp-1</name>
-	<description>RSEG105, project2 part 3</description>
+	<name>spring-mvc-webapp-2</name>
+	<description>RSEG105, project2 part 4</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -79,7 +79,7 @@
 					<groupId>org.springframework</groupId>
 					<artifactId>spring-core</artifactId>
 				</exclusion>
-			</exclusions>	
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -99,7 +99,7 @@
 					<groupId>org.springframework</groupId>
 					<artifactId>spring-core</artifactId>
 				</exclusion>
-			</exclusions>   	
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -210,7 +210,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>spring-mvc-webapp-1</finalName>
+		<finalName>spring-mvc-webapp-2</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

@@ -52,6 +52,8 @@
 			</tr>
 		</table>
 
-		<a href="${editBookUrl}/${book.id}?form">${labelBookUpdate}</a>
+		<sec:authorize access="hasRole('ROLE_USER')">
+			<a href="${editBookUrl}/${book.id}?form">${labelBookUpdate}</a>
+		</sec:authorize> 
 	</div>
 </div>

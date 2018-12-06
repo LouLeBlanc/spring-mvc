@@ -12,24 +12,38 @@
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd
 		http://www.springframework.org/schema/util
 		http://www.springframework.org/schema/util/spring-util.xsd">
 
-	<!--  Provides Entity's validation service. The validator attribute is explicitly defined to reference 
-		the validator bean we defined.-->
+	<!--  Provides Entity's validation service.
+		The validator attribute is explicitly defined to reference 
+		the validator bean we defined.
+	-->
 	<annotation-driven validator="validator"/>
 
-	<!-- The location="/“  indicates the root folder for the web application, which is spring-mvc-webapp-1 on Tomcat. 
+	<!-- Enable Spring Security’s method-level security, and the pre-post-annotations
+		attribute enables the support of annotations. 
+		Now we can use the @PreAuthorize annotation for the controller method we want 
+		to protect. The SingerController class shows an example of protecting 
+		the createForm() method.
+	-->
+	<security:global-method-security pre-post-annotations="enabled"/>
+
+	<!-- The location="/“  indicates the root folder for the web application,
+		which is spring-mvc-webapp-1 on Tomcat. 
 		The mapping attribute defines the URL for mapping to static resources. 
-		So, if you want to add an image picture.gif under images directory, put this resource under 
-		src/main/webapp/images/picture.gif and access it via 
+		So, if you want to add an image picture.gif under images directory,
+		put this resource under src/main/webapp/images/picture.gif and access it via 
 		http://localhost:8080/spring-mvc-webapp-1/resources/images/picture.gif     
 	-->
 	<resources location="/" mapping="/resources/**"/>
 
-	<!-- Enables the mapping of the DispatcherServlet to the web application’s root context URL, 
-		while still allowing static resource requests to be handled by the container’s default servlet. 
-		The default servlet is the Tomcat provided servlet which serves static resources.
+	<!-- Enables the mapping of the DispatcherServlet to the web application’s root
+		context URL, while still allowing static resource requests to be handled
+		by the container’s default servlet.  The default servlet is the Tomcat
+		provided servlet which serves static resources.
 	-->
 	<default-servlet-handler/>
 

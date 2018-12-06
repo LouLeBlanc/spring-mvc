@@ -20,6 +20,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -81,6 +82,7 @@ public class BookController {
 	 * data will be saved, and the logical view name will be returned for the
 	 * display book view by using redirect: as the prefix.
 	 */
+	@PreAuthorize("isAuthenticated()")
 	@RequestMapping(value = "/{id}", params = "form", method = RequestMethod.POST)
 	public String update(@Valid Book book, BindingResult bindingResult, Model uiModel,
 			HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes,
@@ -106,6 +108,7 @@ public class BookController {
 		return "redirect:/books/" + UrlUtil.encodeUrlPathSegment(book.getId().toString(), httpServletRequest);
 	}
 
+	@PreAuthorize("isAuthenticated()")
 	@RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
 	public String updateForm(@PathVariable("id") Long id, Model uiModel) {
 		uiModel.addAttribute("book", bookService.findById(id));
@@ -134,6 +137,7 @@ public class BookController {
 		return "redirect:/books/";
 	}
 
+	@PreAuthorize("isAuthenticated()")
 	@RequestMapping(params = "form", method = RequestMethod.GET)
 	public String createForm(Model uiModel) {
 		Book book = new Book();

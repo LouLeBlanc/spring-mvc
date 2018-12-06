@@ -14,4 +14,12 @@
 		<h1>${headerText}</h1>
 	</div>
 
+	<div id="userinfo">
+		<sec:authorize access="isAuthenticated()">${labelWelcome}
+			<sec:authentication property="principal.username" />
+			<br/>
+			<a href="${logoutUrl}">${labelLogout}</a>
+		</sec:authorize>
+	</div>
+
 </div>

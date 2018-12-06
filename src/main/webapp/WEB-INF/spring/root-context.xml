@@ -8,6 +8,7 @@
 		http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<import resource="classpath:spring/datasource-tx-jpa.xml"/>
+	<import resource="classpath:spring/security-context.xml"/> 
 
 	<context:component-scan base-package="edu.brandeis.rseg105.mvc" />
 </beans>

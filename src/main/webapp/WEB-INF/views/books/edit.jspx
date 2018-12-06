@@ -17,9 +17,6 @@
 	<spring:message code="label_book_publisher" var="labelBookPublisher"/>
 	<spring:message code="label_book_price" var="labelBookPrice"/>
 
-	<!--  Use the Spring Expression Language to test whether the book ID is null.
-		This determines the text of the formTitle variable used in the heading below.
-	-->
 	<spring:eval expression="book.id == null ? labelBookNew:labelBookUpdate" var="formTitle"/>
 
 	<h1>${formTitle}</h1>
