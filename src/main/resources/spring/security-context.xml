@@ -17,6 +17,12 @@
 
 	<authentication-manager>
 		<authentication-provider>
+			<!--  If we want authentication to come from a DB,
+				an LDAP server, or any other source,
+				this is where we would hook it.
+				The bean should be defined above with a bean id,
+				like our dataSource bean in datasource-tx-jpa.xml.
+			-->
 			<user-service>
 				<user name="user" password="user" authorities="ROLE_USER" />
 			</user-service>
