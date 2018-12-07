@@ -116,6 +116,7 @@ public class BookController {
 	}
 
 	//BindingResult used as an object to look for validation errors.
+	@PreAuthorize("isAuthenticated()")
 	@RequestMapping(method = RequestMethod.POST)
 	public String create(@Valid Book book, BindingResult bindingResult, Model uiModel,
 				HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes,
